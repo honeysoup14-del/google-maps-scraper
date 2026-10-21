@@ -1,4 +1,4 @@
-<tbody id="job-tbody" hx-get="/jobs?page={{.CurrentPage}}" hx-trigger="every 10s" hx-swap="outerHTML">
+f<tbody id="job-tbody" hx-get="/jobs?page={{.CurrentPage}}" hx-trigger="every 10s" hx-swap="outerHTML">
 {{range .Jobs}}
 <tr>
     <td>{{.ID}}</td>
@@ -30,7 +30,7 @@
 {{end}}
 </tbody>
 
-<div id="pagination-container" hx-swap-oob="true">
+<div id="pagination-container" hx-swap-oob="outerHTML">
     {{if .HasPages}}
     <div class="pagination" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem;">
         {{if .HasPrev}}
