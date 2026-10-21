@@ -20,7 +20,8 @@ RUN apt-get update \
 FROM golang:${GO_VERSION}-trixie AS builder
 WORKDIR /app
 COPY go.mod go.sum ./
-RUN go mod download
+ENV GOPROXY=https://proxy.golang.org,direct
+RUN timeout 300s go mod download -x
 COPY . .
 RUN CGO_ENABLED=0 go build -ldflags="-w -s" -o /usr/bin/google-maps-scraper
 
