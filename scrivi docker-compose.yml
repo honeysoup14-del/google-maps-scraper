@@ -1,0 +1,15 @@
+
+services:
+  google-maps-scraper:
+    image: gosom/google-maps-scraper:latest
+    restart: unless-stopped
+    command:
+      - "-data-folder"
+      - "/gmapsdata"
+    volumes:
+      - gmaps-data:/gmapsdata
+    expose:
+      - "8080"
+
+volumes:
+  gmaps-data:
