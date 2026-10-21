@@ -1,6 +1,8 @@
 services:
   google-maps-scraper:
-    image: gosom/google-maps-scraper:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     command:
       - "-data-folder"
